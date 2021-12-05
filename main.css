@@ -1,0 +1,11 @@
+header {
+    border-bottom: 1px solid black;
+}
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+#footerText {
+    text-align: center;
+}

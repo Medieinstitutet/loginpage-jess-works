@@ -13,11 +13,17 @@
  const username = document.addElementById("username");
  const password = document.addElementById("password");
  const login = document.addElementById("login");
+ const btnLogin = document.getElementById("btnLogin");
+ const btnLogout = document.getElementById("btnLogout");
+
+ const notLoggedIn = document.getElementById("notLoggedIn");
+ const wrongLogin = document.getElementById("wrongLogin");
+ const loggedIn = document.getElementById("loggedIn");
 
 //login i vy ett som leder till vy två
 
 
-//felmeddelande
-
-
 //logout i vy två leder tillbaka till vy ett
+
+
+//felmeddelande i vy tre --> fel igen leder till samma felmeddelande. Rätt leder till vy två
