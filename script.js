@@ -8,6 +8,7 @@
  let wrongLogin = document.getElementById("wrongLogin");
  let loggedIn = document.getElementById("loggedIn");
 
+
  //default toggle som döljer vy 2 och 3 i startläge. HUR?
 
  btnLogin.addEventListener("click", function () {
@@ -23,7 +24,10 @@
         document.getElementById("loggedIn").style.display = "block";
 
         //localStorage save? Stringify
-        //localStorage.setItem("username", "janne");
+        localStorage.setItem("username", "janne");
+        localStorage.setItem("password", "test");
+       
+    
     }
     else {
         document.getElementById("btnLogout").style.display = "none";
@@ -40,7 +44,8 @@
      document.getElementById("btnLogout").style.display = "none";
      document.getElementById("notLoggedIn").style.display = "block";
      document.getElementById("wrongLogin").style.display = "none";
-     document.getElementById("loggedIn").style.dispaly = "none";
-     //varför syns "loggedIn"?
-    //localStorage erase?
+     document.getElementById("loggedIn").style.display = "none";
+    
+     //äre det allt?
+    localStorage.clear();
  })
