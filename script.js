@@ -9,7 +9,16 @@
  let loggedIn = document.getElementById("loggedIn");
 
 
- //default toggle som döljer vy 2 och 3 i startläge. HUR?
+ window.addEventListener("load", function() {
+     document.getElementById("username").style.display = "block";
+     document.getElementById("password").style.display = "block";
+     document.getElementById("btnLogin").style.display = "block";
+     document.getElementById("btnLogout").style.display = "none";
+     document.getElementById("notLoggedIn").style.display = "block";
+     document.getElementById("wrongLogin").style.display = "none";
+     document.getElementById("loggedIn").style.display = "none";
+ })
+
 
  btnLogin.addEventListener("click", function () {
     let username = document.getElementById("username").value;
@@ -19,15 +28,14 @@
         document.getElementById("username").style.display = "none";
         document.getElementById("password").style.display = "none";
         document.getElementById("btnLogin").style.display = "none";
+        document.getElementById("btnLogout").style.display = "block";
         document.getElementById("notLoggedIn").style.display = "none";
         document.getElementById("wrongLogin").style.display = "none";
         document.getElementById("loggedIn").style.display = "block";
 
-        //localStorage save? Stringify
         localStorage.setItem("username", "janne");
         localStorage.setItem("password", "test");
-       
-    
+        //vara inloggad vid refresh. HUR?
     }
     else {
         document.getElementById("btnLogout").style.display = "none";
@@ -36,6 +44,7 @@
         document.getElementById("loggedIn").style.display = "none";
     }
  });
+
 
  btnLogout.addEventListener("click", function () {
      document.getElementById("username").style.display = "block";
@@ -46,6 +55,10 @@
      document.getElementById("wrongLogin").style.display = "none";
      document.getElementById("loggedIn").style.display = "none";
     
-     //äre det allt?
+    //rensa input fält. HUR?
+    function reset () {
+        document.getElementById("credentials").reset();
+    }
     localStorage.clear();
+
  })
