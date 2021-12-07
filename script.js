@@ -8,8 +8,16 @@
  let wrongLogin = document.getElementById("wrongLogin");
  let loggedIn = document.getElementById("loggedIn");
 
+ localStorage.setItem("username", "janne");
+ localStorage.setItem("password", "test");
+
 
  window.addEventListener("load", function() {
+     if (localStorage.getItem("status") == "inloggad") {
+         loginfunction()
+         return
+     }
+     
      document.getElementById("username").style.display = "block";
      document.getElementById("password").style.display = "block";
      document.getElementById("btnLogin").style.display = "block";
@@ -19,12 +27,14 @@
      document.getElementById("loggedIn").style.display = "none";
  })
 
-
- btnLogin.addEventListener("click", function () {
+ btnLogin.addEventListener("click", loginfunction)
+ function loginfunction () {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    if (username === "janne" && password === "test") {
+    if (localStorage.getItem("username") == "janne" &&
+    localStorage.getItem("password") == "test") {
+
         document.getElementById("username").style.display = "none";
         document.getElementById("password").style.display = "none";
         document.getElementById("btnLogin").style.display = "none";
@@ -32,10 +42,8 @@
         document.getElementById("notLoggedIn").style.display = "none";
         document.getElementById("wrongLogin").style.display = "none";
         document.getElementById("loggedIn").style.display = "block";
-
-        localStorage.setItem("username", "janne");
-        localStorage.setItem("password", "test");
-        //vara inloggad vid refresh. HUR?
+        
+        localStorage.setItem("status", "inloggad")
     }
     else {
         document.getElementById("btnLogout").style.display = "none";
@@ -43,8 +51,7 @@
         document.getElementById("wrongLogin").style.display = "block";
         document.getElementById("loggedIn").style.display = "none";
     }
- });
-
+ };
 
  btnLogout.addEventListener("click", function () {
      document.getElementById("username").style.display = "block";
@@ -55,10 +62,6 @@
      document.getElementById("wrongLogin").style.display = "none";
      document.getElementById("loggedIn").style.display = "none";
     
-    //rensa input fält. HUR?
-    function reset () {
-        document.getElementById("credentials").reset();
-    }
     localStorage.clear();
-
+    location.reload();
  })
